@@ -120,13 +120,7 @@ class Ui_MainWindow(object):
         font.setFamily(u"Segoe UI")
         font.setPointSize(10)
         MainWindow.setFont(font)
-        MainWindow.setStyleSheet(u"QMainWindow {background: transparent; }\n"
-"QToolTip {\n"
-"	color: #ffffff;\n"
-"	background-color: rgba(27, 29, 35, 160);\n"
-"	border: 1px solid rgb(40, 40, 40);\n"
-"	border-radius: 2px;\n"
-"}")
+        style(MainWindow, "ui_main", "MainWindow");
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background: transparent;color: rgb(210, 210, 210);");
@@ -172,25 +166,9 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_toggle_menu.sizePolicy().hasHeightForWidth())
         self.btn_toggle_menu.setSizePolicy(sizePolicy)
-        self.btn_toggle_menu.setStyleSheet(u"QPushButton {\n"
-"	background-image: url(:/24x24/icons/24x24/cil-menu.png);\n"
-"	background-position: center;\n"
-"	background-repeat: no-reperat;\n"
-"	border: none;\n"
-"	background-color: rgb(27, 29, 35);\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(33, 37, 43);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
-
+        style(self.btn_toggle_menu, "ui_main", "btn_toggle_menu");
         self.verticalLayout_3.addWidget(self.btn_toggle_menu)
-
-
         self.horizontalLayout_3.addWidget(self.frame_toggle)
-
         self.frame_top_right = QFrame(self.frame_top)
         self.frame_top_right.setObjectName(u"frame_top_right")
         self.frame_top_right.setStyleSheet(u"background: transparent;")
@@ -226,16 +204,10 @@ class Ui_MainWindow(object):
         self.frame_icon_top_bar = QFrame(self.frame_label_top_btns)
         self.frame_icon_top_bar.setObjectName(u"frame_icon_top_bar")
         self.frame_icon_top_bar.setMaximumSize(QSize(30, 30))
-        self.frame_icon_top_bar.setStyleSheet(u"background: transparent;\n"
-"background-image: url(:/16x16/icons/16x16/cil-terminal.png);\n"
-"background-position: center;\n"
-"background-repeat: no-repeat;\n"
-"")
+        style(self.frame_icon_top_bar, "ui_main", "frame_icon_top_bar");
         self.frame_icon_top_bar.setFrameShape(QFrame.StyledPanel)
         self.frame_icon_top_bar.setFrameShadow(QFrame.Raised)
-
         self.horizontalLayout_10.addWidget(self.frame_icon_top_bar)
-
         self.label_title_bar_top = QLabel(self.frame_label_top_btns)
         self.label_title_bar_top.setObjectName(u"label_title_bar_top")
         font1 = QFont()
@@ -244,14 +216,9 @@ class Ui_MainWindow(object):
         font1.setBold(True)
         #font1.setWeight(75) #todo
         self.label_title_bar_top.setFont(font1)
-        self.label_title_bar_top.setStyleSheet(u"background: transparent;\n"
-"")
-
+        self.label_title_bar_top.setStyleSheet("background: transparent;")
         self.horizontalLayout_10.addWidget(self.label_title_bar_top)
-
-
         self.horizontalLayout_4.addWidget(self.frame_label_top_btns)
-
         self.frame_btns_right = QFrame(self.frame_top_btns)
         self.frame_btns_right.setObjectName(u"frame_btns_right")
         sizePolicy1.setHeightForWidth(self.frame_btns_right.sizePolicy().hasHeightForWidth())
@@ -272,72 +239,35 @@ class Ui_MainWindow(object):
         self.btn_minimize.setSizePolicy(sizePolicy2)
         self.btn_minimize.setMinimumSize(QSize(40, 0))
         self.btn_minimize.setMaximumSize(QSize(40, 16777215))
-        self.btn_minimize.setStyleSheet(u"QPushButton {	\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
+        style(self.btn_minimize, "ui_main", "btn_minimize");
         icon = QIcon()
         icon.addFile(u":/16x16/icons/16x16/cil-window-minimize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_minimize.setIcon(icon)
-
         self.horizontalLayout_5.addWidget(self.btn_minimize)
-
         self.btn_maximize_restore = QPushButton(self.frame_btns_right)
         self.btn_maximize_restore.setObjectName(u"btn_maximize_restore")
         sizePolicy2.setHeightForWidth(self.btn_maximize_restore.sizePolicy().hasHeightForWidth())
         self.btn_maximize_restore.setSizePolicy(sizePolicy2)
         self.btn_maximize_restore.setMinimumSize(QSize(40, 0))
         self.btn_maximize_restore.setMaximumSize(QSize(40, 16777215))
-        self.btn_maximize_restore.setStyleSheet(u"QPushButton {	\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
+        style(self.btn_maximize_restore, "ui_main", "btn_maximize_restore");
         icon1 = QIcon()
         icon1.addFile(u":/16x16/icons/16x16/cil-window-maximize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_maximize_restore.setIcon(icon1)
-
         self.horizontalLayout_5.addWidget(self.btn_maximize_restore)
-
         self.btn_close = QPushButton(self.frame_btns_right)
         self.btn_close.setObjectName(u"btn_close")
         sizePolicy2.setHeightForWidth(self.btn_close.sizePolicy().hasHeightForWidth())
         self.btn_close.setSizePolicy(sizePolicy2)
         self.btn_close.setMinimumSize(QSize(40, 0))
         self.btn_close.setMaximumSize(QSize(40, 16777215))
-        self.btn_close.setStyleSheet(u"QPushButton {	\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
+        style(self.btn_close, "ui_main", "btn_close");
         icon2 = QIcon()
         icon2.addFile(u":/16x16/icons/16x16/cil-x.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_close.setIcon(icon2)
-
         self.horizontalLayout_5.addWidget(self.btn_close)
-
-
         self.horizontalLayout_4.addWidget(self.frame_btns_right, 0, Qt.AlignRight)
-
-
         self.verticalLayout_2.addWidget(self.frame_top_btns)
-
         self.frame_top_info = QFrame(self.frame_top_right)
         self.frame_top_info.setObjectName(u"frame_top_info")
         self.frame_top_info.setMaximumSize(QSize(16777215, 65))
@@ -369,18 +299,10 @@ class Ui_MainWindow(object):
         self.label_top_info_2.setFont(font3)
         self.label_top_info_2.setStyleSheet(u"color: rgb(98, 103, 111);")
         self.label_top_info_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
         self.horizontalLayout_8.addWidget(self.label_top_info_2)
-
-
         self.verticalLayout_2.addWidget(self.frame_top_info)
-
-
         self.horizontalLayout_3.addWidget(self.frame_top_right)
-
-
         self.verticalLayout.addWidget(self.frame_top)
-
         self.frame_center = QFrame(self.frame_main)
         self.frame_center.setObjectName(u"frame_center")
         sizePolicy.setHeightForWidth(self.frame_center.sizePolicy().hasHeightForWidth())
@@ -417,9 +339,7 @@ class Ui_MainWindow(object):
         self.layout_menus.setSpacing(0)
         self.layout_menus.setObjectName(u"layout_menus")
         self.layout_menus.setContentsMargins(0, 0, 0, 0)
-
         self.verticalLayout_5.addWidget(self.frame_menus, 0, Qt.AlignTop)
-
         self.frame_extra_menus = QFrame(self.frame_left_menu)
         self.frame_extra_menus.setObjectName(u"frame_extra_menus")
         sizePolicy3.setHeightForWidth(self.frame_extra_menus.sizePolicy().hasHeightForWidth())
@@ -443,23 +363,11 @@ class Ui_MainWindow(object):
         font4.setFamily(u"Segoe UI")
         font4.setPointSize(12)
         self.label_user_icon.setFont(font4)
-        self.label_user_icon.setStyleSheet(u"QLabel {\n"
-"	border-radius: 30px;\n"
-"	background-color: rgb(44, 49, 60);\n"
-"	border: 5px solid rgb(39, 44, 54);\n"
-"	background-position: center;\n"
-"	background-repeat: no-repeat;\n"
-"}")
+        style(self.label_user_icon, "ui_main", "label_user_icon");
         self.label_user_icon.setAlignment(Qt.AlignCenter)
-
         self.layout_menu_bottom.addWidget(self.label_user_icon, 0, Qt.AlignHCenter)
-
-
         self.verticalLayout_5.addWidget(self.frame_extra_menus, 0, Qt.AlignBottom)
-
-
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
-
         self.frame_content_right = QFrame(self.frame_center)
         self.frame_content_right.setObjectName(u"frame_content_right")
         self.frame_content_right.setStyleSheet(u"background-color: rgb(44, 49, 60);")
@@ -481,42 +389,42 @@ class Ui_MainWindow(object):
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setStyleSheet(u"background: transparent;")
         # -------------------------------------------- page home -----------------
-        self.page_home = QWidget()
-        self.page_home.setObjectName(u"page_home")
-        self.verticalLayout_10 = QVBoxLayout(self.page_home)
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.label_6 = QLabel(self.page_home)
-        self.label_6.setObjectName(u"label_6")
-        font5 = QFont()
-        font5.setFamily(u"Segoe UI")
-        font5.setPointSize(40)
-        self.label_6.setFont(font5)
-        self.label_6.setStyleSheet(u"")
-        self.label_6.setAlignment(Qt.AlignCenter)
+        # self.page_home = QWidget()
+        # self.page_home.setObjectName(u"page_home")
+        # self.verticalLayout_10 = QVBoxLayout(self.page_home)
+        # self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        # self.label_6 = QLabel(self.page_home)
+        # self.label_6.setObjectName(u"label_6")
+        # font5 = QFont()
+        # font5.setFamily(u"Segoe UI")
+        # font5.setPointSize(40)
+        # self.label_6.setFont(font5)
+        # self.label_6.setStyleSheet(u"")
+        # self.label_6.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_10.addWidget(self.label_6)
+        # self.verticalLayout_10.addWidget(self.label_6)
 
-        self.label = QLabel(self.page_home)
-        self.label.setObjectName(u"label")
-        font6 = QFont()
-        font6.setFamily(u"Segoe UI")
-        font6.setPointSize(14)
-        self.label.setFont(font6)
-        self.label.setAlignment(Qt.AlignCenter)
+        # self.label = QLabel(self.page_home)
+        # self.label.setObjectName(u"label")
+        # font6 = QFont()
+        # font6.setFamily(u"Segoe UI")
+        # font6.setPointSize(14)
+        # self.label.setFont(font6)
+        # self.label.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_10.addWidget(self.label)
+        # self.verticalLayout_10.addWidget(self.label)
 
-        self.label_7 = QLabel(self.page_home)
-        self.label_7.setObjectName(u"label_7")
-        font7 = QFont()
-        font7.setFamily(u"Segoe UI")
-        font7.setPointSize(15)
-        self.label_7.setFont(font7)
-        self.label_7.setAlignment(Qt.AlignCenter)
+        # self.label_7 = QLabel(self.page_home)
+        # self.label_7.setObjectName(u"label_7")
+        # font7 = QFont()
+        # font7.setFamily(u"Segoe UI")
+        # font7.setPointSize(15)
+        # self.label_7.setFont(font7)
+        # self.label_7.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_10.addWidget(self.label_7)
+        # self.verticalLayout_10.addWidget(self.label_7)
 
-        self.stackedWidget.addWidget(self.page_home)
+        # self.stackedWidget.addWidget(self.page_home)
         # -------------------------------------------- page widgets -----------------
         self.page_widgets = QWidget()
         self.page_widgets.setObjectName(u"page_widgets")
