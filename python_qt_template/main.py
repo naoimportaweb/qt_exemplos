@@ -149,7 +149,7 @@ class MainWindow(QMainWindow):
 
         # PAGE WIDGETS
         if btnWidget.objectName() == "btn_widgets":
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_widgets)
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_dois)
             UIFunctions.resetStyle(self, "btn_widgets")
             UIFunctions.labelPage(self, "Setup")
             btnWidget.setStyleSheet(UIFunctions.selectMenu(btnWidget.styleSheet()))

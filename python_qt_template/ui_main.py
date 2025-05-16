@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
-import os;
+import os, sys;
+import files_rc
 
-from PySide6.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
-    QRadialGradient)
+
+from PySide6.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint, QRect, QSize, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide6.QtWidgets import *
 
-import files_rc
+sys.path.append(os.environ["ROOT"]);
+
+from widget.page_home import PageHome;
+from widget.page_dois import PageDois;
 
 def style(objeto, arquivo, nome):
     path_style = os.path.join(os.environ["ROOT"], "style", arquivo, nome + ".style");
@@ -389,85 +391,13 @@ class Ui_MainWindow(object):
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setStyleSheet(u"background: transparent;")
         # -------------------------------------------- page home -----------------
-        # self.page_home = QWidget()
-        # self.page_home.setObjectName(u"page_home")
-        # self.verticalLayout_10 = QVBoxLayout(self.page_home)
-        # self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        # self.label_6 = QLabel(self.page_home)
-        # self.label_6.setObjectName(u"label_6")
-        # font5 = QFont()
-        # font5.setFamily(u"Segoe UI")
-        # font5.setPointSize(40)
-        # self.label_6.setFont(font5)
-        # self.label_6.setStyleSheet(u"")
-        # self.label_6.setAlignment(Qt.AlignCenter)
-
-        # self.verticalLayout_10.addWidget(self.label_6)
-
-        # self.label = QLabel(self.page_home)
-        # self.label.setObjectName(u"label")
-        # font6 = QFont()
-        # font6.setFamily(u"Segoe UI")
-        # font6.setPointSize(14)
-        # self.label.setFont(font6)
-        # self.label.setAlignment(Qt.AlignCenter)
-
-        # self.verticalLayout_10.addWidget(self.label)
-
-        # self.label_7 = QLabel(self.page_home)
-        # self.label_7.setObjectName(u"label_7")
-        # font7 = QFont()
-        # font7.setFamily(u"Segoe UI")
-        # font7.setPointSize(15)
-        # self.label_7.setFont(font7)
-        # self.label_7.setAlignment(Qt.AlignCenter)
-
-        # self.verticalLayout_10.addWidget(self.label_7)
-
-        # self.stackedWidget.addWidget(self.page_home)
+        self.page_home = PageHome(None);
+        self.page_home.make();
+        self.stackedWidget.addWidget(self.page_home)
         # -------------------------------------------- page widgets -----------------
-        self.page_widgets = QWidget()
-        self.page_widgets.setObjectName(u"page_widgets")
-        
-        
-        palette1 = QPalette()
-        palette1.setBrush(QPalette.Active, QPalette.WindowText, brush6)
-        brush15 = QBrush(QColor(39, 44, 54, 255))
-        brush15.setStyle(Qt.SolidPattern)
-        palette1.setBrush(QPalette.Active, QPalette.Button, brush15)
-        palette1.setBrush(QPalette.Active, QPalette.Text, brush6)
-        palette1.setBrush(QPalette.Active, QPalette.ButtonText, brush6)
-        palette1.setBrush(QPalette.Active, QPalette.Base, brush15)
-        palette1.setBrush(QPalette.Active, QPalette.Window, brush15)
-        brush16 = QBrush(QColor(210, 210, 210, 128))
-        brush16.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette.Active, QPalette.PlaceholderText, brush16)
-#endif
-        palette1.setBrush(QPalette.Inactive, QPalette.WindowText, brush6)
-        palette1.setBrush(QPalette.Inactive, QPalette.Button, brush15)
-        palette1.setBrush(QPalette.Inactive, QPalette.Text, brush6)
-        palette1.setBrush(QPalette.Inactive, QPalette.ButtonText, brush6)
-        palette1.setBrush(QPalette.Inactive, QPalette.Base, brush15)
-        palette1.setBrush(QPalette.Inactive, QPalette.Window, brush15)
-        brush17 = QBrush(QColor(210, 210, 210, 128))
-        brush17.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush17)
-#endif
-        palette1.setBrush(QPalette.Disabled, QPalette.WindowText, brush6)
-        palette1.setBrush(QPalette.Disabled, QPalette.Button, brush15)
-        palette1.setBrush(QPalette.Disabled, QPalette.Text, brush6)
-        palette1.setBrush(QPalette.Disabled, QPalette.ButtonText, brush6)
-        palette1.setBrush(QPalette.Disabled, QPalette.Base, brush15)
-        palette1.setBrush(QPalette.Disabled, QPalette.Window, brush15)
-        brush18 = QBrush(QColor(210, 210, 210, 128))
-        brush18.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush18)
-#endif
-        #self.verticalLayout_6.addWidget(self.frame_3)
-        self.stackedWidget.addWidget(self.page_widgets)
+        self.page_dois = PageDois(None);
+        self.page_dois.make();
+        self.stackedWidget.addWidget(self.page_dois)
         # -------------------------------------------------------- FIM DO WIDGET
         self.verticalLayout_9.addWidget(self.stackedWidget)
         self.verticalLayout_4.addWidget(self.frame_content)
@@ -545,9 +475,5 @@ class Ui_MainWindow(object):
         self.btn_close.setText("")
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
         self.label_user_icon.setText(QCoreApplication.translate("MainWindow", u"QT", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Empyt Page", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Page Index 1", None))
         self.label_credits.setText(QCoreApplication.translate("MainWindow", u"Marca", None))
         self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
-    # retranslateUi
